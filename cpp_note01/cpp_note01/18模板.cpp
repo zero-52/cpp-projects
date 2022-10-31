@@ -36,7 +36,7 @@
 
 函数模板调用规则：
 	1. 如果函数模板和普通函数都可以实现，优先调用普通函数
-	2. 可以通过空模板参数列表<>来强制调用函数模板
+	2. 可以通过空模板参数列表<>来强制优先调用函数模板
 	3. 函数模板也可以发生重载
 	4. 如果函数模板可以产生更好的匹配,优先调用函数模板
 
@@ -79,19 +79,19 @@
  		1、继承时，要显示指定父类模板参数类型列表，如果不指定，编译器无法给予类分配内存
 			class Son1 :public Person08<int>
 
- 		2、如果想灵活指定出父类中T的类型，子类也需要变为类模板
+ 		2、如果想灵活指定父类中T的类型，子类也需要变为类模板
 			template<typename T1, typename T2>
-			class Son2 :public Person08<T2>
+			class Son2 :public Person08<T2> //T2 是父类中的模板参数，T1在子类中用作模板参数
 
  	注意：子类和父类都为类模板时，调用父类成员必须加 this指针
 
 
 类模板成员函数在类内定义、类外实现时
 	需要加上类模板的参数列表<Type1, Type2>
- 	template<class T1, class T2>  //
- 	void Person<T1, T2>::showPerson(){ } //类模板成员的类外实现
+ 		template<class T1, class T2>  //
+ 		void Person<T1, T2>::showPerson(){ } //类模板成员的类外实现
 
-	void Person::showPerson(){ } //普通类成员的类外实现
+		void Person::showPerson(){ } //普通类成员的类外实现
 
 
 类模板的分文件编写注意事项
@@ -328,7 +328,7 @@ void test31()
 	//1. 如果函数模板和普通函数定义相同，优先调用普通函数
 	myTest01(a, b);
 
-	//2. 可以通过空模板参数列表<>来强制调用函数模板
+	//2. 可以通过空模板参数列表<>来强制优先调用函数模板
 	myTest01<>(a, b);
 
 	//3. 函数模板也可以发生重载
@@ -591,13 +591,13 @@ public:
 	}
 };
 
-//1、类模板对象做函数参数，形参指定传入类型
+//1、类模板对象做函数参数：形参指定传入类型
 void printFunc1(Person07<string, int>&p)
 {
 	p.showPerson7();
 }
 
-//2、类模板对象做函数参数，参数模板化
+//2、类模板对象做函数参数：参数模板化
 template<typename T1, typename T2>
 void printFunc2(Person07<T1, T2>& p)
 {
@@ -678,6 +678,7 @@ void test36()
 	Son08_1 son1;
 	son1.m = 5;
 	son1.show();
+	cout << endl;
 
 	Son08_2<int, char> son2;  //int 传给 T1，char 传给 T2
 	son2.obj = 10;
@@ -690,10 +691,10 @@ void test36()
 /*****************************************************************************
  *  @brief	类模板成员函数的类内定义、类外实现
  *		需要加上类模板的参数列表<Type1, Type2>
- *		void Person::showPerson(){ } //普通类成员的类外实现
+ *			void Person::showPerson(){ } //普通类成员的类外实现
  * 
- *		template<class T1, class T2>  //
- *		void Person<T1, T2>::showPerson(){ } //类模板成员的类外实现
+ *			template<class T1, class T2>  //
+ *			void Person<T1, T2>::showPerson(){ } //类模板成员的类外实现
  *
  *****************************************************************************/
  //类模板中成员函数类外实现

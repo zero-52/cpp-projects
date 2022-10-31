@@ -184,7 +184,7 @@ void a3_set_difference()
  *  @brief	main
 
  *****************************************************************************/
-int main()
+int main26_6()
 {
 	//求交集
 	a1_set_intersection();
