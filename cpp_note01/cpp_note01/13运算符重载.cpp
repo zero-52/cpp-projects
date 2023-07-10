@@ -52,7 +52,7 @@ public:
 	}
 	//1、通过成员函数重载+号
 	/*
-	AA01 operator+(AA01& aa)  //双目运算符，成员函数要有一个参数
+	AA01 operator+(AA01& aa)  //双目运算符，重载做成员函数要有一个参数
 	{
 		AA01 temp;
 		temp.m_A = this->m_A + aa.m_A;
@@ -62,7 +62,7 @@ public:
 
 };
 //2、通过全局函数重载+号（和1不能共存）
-AA01 operator+(AA01& aa1, AA01& aa2)  //双目运算符，全局函数要有俩参数
+AA01 operator+(AA01& aa1, AA01& aa2)  //双目运算符，重载做全局函数要有俩参数
 {
 	AA01 temp;
 	temp.m_A = aa1.m_A + aa2.m_A;
@@ -70,7 +70,7 @@ AA01 operator+(AA01& aa1, AA01& aa2)  //双目运算符，全局函数要有俩参数
 	return temp;
 }
 
-//运算符重载，也可以发生函数重载
+//运算符重载时，也可以发生函数重载
 AA01 operator+(AA01& aa1, int num)
 {
 	AA01 temp;

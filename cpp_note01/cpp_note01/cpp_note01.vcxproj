@@ -172,6 +172,8 @@
     <ClCompile Include="26_4 STL_常用算法_拷贝和替换.cpp" />
     <ClCompile Include="26_5 STL_常用算法_算术生成.cpp" />
     <ClCompile Include="26_6 STL_常用算法_集合.cpp" />
+    <ClCompile Include="27_1 Cpp11_新特性.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="16BinaryFile.txt" />
