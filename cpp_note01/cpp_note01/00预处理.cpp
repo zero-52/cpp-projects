@@ -17,7 +17,7 @@
 	
 	指令的一般形式是：
 		#define macro-name replacement-text
-		在该文件中后续出现的所有宏都将会在程序编译之前被替换为 replacement-text。
+		在该文件中后续出现的所有 宏名macro-name 都将会在程序编译之前被替换为 replacement-text。
 
 	参数宏
 		#define MIN(a,b) (a<b ? a : b)
@@ -39,13 +39,13 @@ using namespace std;
 // 第一个命名空间
 namespace first_space {
 	void func() {
-		cout << "Inside first_space" << endl;
+		cout << "第一个命名空间 first_space" << endl;
 	}
 }
 // 第二个命名空间
 namespace second_space {
 	void func() {
-		cout << "Inside second_space" << endl;
+		cout << "第二个命名空间 second_space" << endl;
 	}
 }
 
@@ -69,13 +69,11 @@ int main0()
 
 int main()
 {
-
 	cout << "Value of PI :" << PI << endl;
-
 	return 0;
 }
 现在，让我们测试这段代码，看看预处理的结果。假设源代码文件已经存在，接下来使用 - E 选项进行编译，
-并把结果重定向到 test.p。现在，如果您查看 test.p 文件，将会看到它已经包含大量的信息，而且在文件底部的值被改为如下：
+并把结果重定向到 test.p。现在，如果您查看 test.p 文件，将会看到它已经包含大量的信息，而且在文件中的宏被改为如下：
 
 $ gcc - E test.cpp > test.p
 

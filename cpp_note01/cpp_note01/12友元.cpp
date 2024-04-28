@@ -68,8 +68,8 @@ void goodFriend(Building01 build01)  //形参当然也可以用 指针传递 或 引用传递
 {
 	cout << "全局函数 做友元访问 类对象build01 的公有成员：" << build01.m_DrawingRoom << endl;
 
-	cout << "全局函数 做友元访问 类对象build01 的私有成员：" << build01.m_BedRoom << endl; 
 	//类外不能访问私有成员，除非在 Building01 类中指定该全局函数为 friend
+	cout << "全局函数 做友元访问 类对象build01 的私有成员：" << build01.m_BedRoom << endl; 
 }
 
 void test12()
@@ -100,8 +100,8 @@ public:
 	{
 		cout << "LaoWang正在访问 另一个类对象 bulid02 的公有成员：" << build02->m_DrawingRoom << endl;
 
-		cout << "LaoWang正在访问 另一个类对象 bulid02 的私有成员：" << build02->m_BedRoom << endl;  
 		//类外不可访问私有成员，除非在 Building01 类中指定当前类LaoWang 为 friend
+		cout << "LaoWang正在访问 另一个类对象 bulid02 的私有成员：" << build02->m_BedRoom << endl;  
 
 		cout << "LaoWang正在访问 另一个类对象 bulid03 的公有成员：" << build03.m_DrawingRoom << endl;
 		cout << "LaoWang正在访问 另一个类对象 bulid03 的私有成员：" << build03.m_BedRoom << endl;
